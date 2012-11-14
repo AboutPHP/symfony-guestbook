@@ -3,11 +3,12 @@
 namespace Serge\GuestbookBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Serge\GuestbookBundle\Entity\Entry
  *
- * @ORM\Table()
+ * @ORM\Table(name="guestbook_entry")
  * @ORM\Entity(repositoryClass="Serge\GuestbookBundle\Entity\EntryRepository")
  */
 class Entry
@@ -25,6 +26,13 @@ class Entry
      * @var string $name
      *
      * @ORM\Column(name="name", type="string", length=255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Your name cannot contain a number"
+     * )
      */
     private $name;
 
@@ -32,6 +40,9 @@ class Entry
      * @var string $email
      *
      * @ORM\Column(name="email", type="string", length=255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Email(message = "Your E-mail look like broken :(")
      */
     private $email;
 
@@ -39,6 +50,9 @@ class Entry
      * @var string $text
      *
      * @ORM\Column(name="text", type="text")
+     *
+     * @Assert\NotBlank()
+     * @Assert\MinLength(limit=100, message="Text should be more than {{limit}} letters in length")
      */
     private $text;
 
@@ -46,7 +60,7 @@ class Entry
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
