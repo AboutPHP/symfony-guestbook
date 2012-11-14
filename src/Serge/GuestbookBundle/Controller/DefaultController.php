@@ -8,6 +8,9 @@ class DefaultController extends Controller
 {
     public function indexAction($name)
     {
-        return $this->render('GuestbookBundle:Default:index.html.twig', array('name' => $name));
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('entry');
+
+        var_dump ($repo->findAll());
     }
 }
