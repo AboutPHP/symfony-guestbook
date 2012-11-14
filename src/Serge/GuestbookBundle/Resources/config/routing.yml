@@ -8,4 +8,8 @@ guestbook_view:
 
 guestbook_delete:
     pattern:  /delete/{id}
-    defaults: { _controller: GuestbookBundle:Default:delete } 
+    defaults: { _controller: GuestbookBundle:Default:delete }
+
+guestbook_import_dalma_comments:
+    pattern:  /import
+    defaults: { _controller: GuestbookBundle:Default:import }
