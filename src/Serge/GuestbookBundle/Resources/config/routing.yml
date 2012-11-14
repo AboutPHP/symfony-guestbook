@@ -1,3 +1,11 @@
 guestbook_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: GuestbookBundle:Default:index }
+
+guestbook_view:
+    pattern:  /view/{id}
+    defaults: { _controller: GuestbookBundle:Default:view }
+
+guestbook_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: GuestbookBundle:Default:delete } 
