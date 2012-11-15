@@ -1,11 +1,6 @@
-guestbook_homepage:
-    pattern:  /
-    defaults: { _controller: GuestbookBundle:Default:index }
+_default_import:
+    resource: routing/default.yml
 
-guestbook_view:
-    pattern:  /view/{id}
-    defaults: { _controller: GuestbookBundle:Default:view }
-
-guestbook_delete:
-    pattern:  /delete/{id}
-    defaults: { _controller: GuestbookBundle:Default:delete } 
+GuestbookBundle_entry:
+    resource: "@GuestbookBundle/Resources/config/routing/entry.yml"
+    prefix:   /entry
