@@ -1,7 +1,3 @@
-entry:
-    pattern:  /
-    defaults: { _controller: "GuestbookBundle:Entry:index" }
-
 entry_show:
     pattern:  /{id}/show
     defaults: { _controller: "GuestbookBundle:Entry:show" }

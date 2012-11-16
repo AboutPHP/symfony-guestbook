@@ -15,21 +15,6 @@ use Serge\GuestbookBundle\Form\EntryType;
 class EntryController extends Controller
 {
     /**
-     * Lists all Entry entities.
-     *
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('GuestbookBundle:Entry')->findAll();
-
-        return $this->render('GuestbookBundle:Entry:index.html.twig', array(
-            'entities' => $entities,
-        ));
-    }
-
-    /**
      * Finds and displays a Entry entity.
      *
      */
